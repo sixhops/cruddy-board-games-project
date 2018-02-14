@@ -33,6 +33,7 @@ Suggested order of operations:
 ## Full RESTful Routing
 
 | Verb | Path | Action | Used for |
+|------|------|--------|----------|
 | GET | /games | index | display a list of all games |
 | GET | /games/new | new | return an HTML form for creating a new game |
 | POST | /games | create | create a new game (using form data from /games/new) |

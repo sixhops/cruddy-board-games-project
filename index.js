@@ -1,9 +1,7 @@
-// require the modules we need
-// STOP: what are these modules? Use online documentation to read up on them.
 var express = require('express');
 var path = require('path');
 var fs = require('fs');
-var ejsLayouts = require("express-ejs-layouts");
+var ejsLayouts = require('express-ejs-layouts');
 var bodyParser = require('body-parser');
 
 var app = express();
@@ -65,5 +63,5 @@ function saveGames(games) {
 // start the server
 
 var port = 3000;
-console.log("http://localhost:" + port);
+console.log("Listening at http://localhost:" + port + "...");
 app.listen(port);
