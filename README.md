@@ -33,12 +33,11 @@ Suggested order of operations:
 1. Do the GET routes first. Then POST, and finally PUT and DELETE.
 2. For each route:
     1. Write the routing logic in `app.js`
-    2. Create the EJS template inside the folder `views/games/`
+    2. Create the EJS template inside the folder `views/games/` (named after the action in the table below.)
     3. Pass data from the route handler in `app.js` to the template (`res.render`)
-    4. If required, listen for events in JS (`static/js/main.js`) and use AJAX.
+    4. Put your click event overrides in a js folder (`static/js/main.js`) and use AJAX.
 
 ## Full RESTful Routing
-
 | Verb | Path | Action | Used for |
 |------|------|--------|----------|
 | GET | /games | index | display a list of all games |
