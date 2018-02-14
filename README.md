@@ -17,19 +17,20 @@ HTML forms and links **DO NOT** support HTTP methods PUT and DELETE, so jQuery i
 3. NOTE: we must use pg@6.4.2 because the pg@7 driver is not supported by sequelize.
 
 ## Initialization of Sequelize
-1. createdb `cruddy_board_games`
-2. `sequelize init`
-3. Update config.json
+1. Create a new database for your app: `createdb cruddy_board_games`
+2. Initialize sequelize for this project: `sequelize init`
+3. Update the config.json file to reflect your database name and dialect.
 4. Create a new model named `games` with columns name:string, description:string
+  a. `sequelize model:create --name games --attributes name:string,description:string`
 5. Verify that the migrations and models were generated.
-6. sequelize db:migrate
+6. Run the migration script: `sequelize db:migrate`
 
 ## Task
 Implement the routing for all the routes in the next section. Your routes will provide the framework for how the app can access the database. For example, you will create a route to list all games and this route will use sequelize to retrieve all game records from the games table and return that data in an EJS file to the browser.
 
 Suggested order of operations:
 
-1. Do the GET routes first. Then, POST, PUT, DELETE.
+1. Do the GET routes first. Then POST, and finally PUT and DELETE.
 2. For each route:
     1. Write the routing logic in `app.js`
     2. Create the EJS template inside the folder `views/games/`
@@ -49,7 +50,6 @@ Suggested order of operations:
 | DELETE | /games/:name | destroy | deletes one specific game |
 
 ## BONUS
-
 * Use gamesWithNull.json instead of games.json. How will you make sure you're using an object instead of a null value?
 * Replace synchronous I/O functions with asynchronous. (fs.readFile instead of fs.readFileSync)
 * Use a database instead of `games.json`
