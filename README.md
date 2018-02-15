@@ -20,8 +20,8 @@ HTML forms and links **DO NOT** support HTTP methods PUT and DELETE, so jQuery i
 1. Create a new database for your app: `createdb cruddy_board_games`
 2. Initialize sequelize for this project: `sequelize init`
 3. Update the config.json file to reflect your database name and dialect.
-4. Create a new model named `games` with columns name:string, description:string
-  * `sequelize model:create --name games --attributes name:string,description:string`
+4. Create a new model named `game` with columns name:string, description:string
+  * `sequelize model:create --name game --attributes name:string,description:string`
 5. Verify that the migrations and models were generated.
 6. Run the migration script: `sequelize db:migrate`
 

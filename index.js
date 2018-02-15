@@ -11,7 +11,6 @@ app.use(express.static(path.join(__dirname, 'static')));
 // Configure the body parser module
 app.use(bodyParser.urlencoded({ extended: false }));
 
-app.use(ejsLayouts);
 app.set('view engine', 'ejs');
 
 // Default route for the root of the site
