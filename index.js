@@ -1,3 +1,4 @@
+var db = require('./models');
 var express = require('express');
 var path = require('path');
 var fs = require('fs');
@@ -13,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.set('view engine', 'ejs');
 
-// Default route for the root of the site
+// Default route for the root of the site //this defines home.ejs as the root index file
 app.get('/', function(req, res) {
   res.render('home');
 });
@@ -21,12 +22,65 @@ app.get('/', function(req, res) {
 // Add your routes here...
 
 // GET /games - List of all games
+app.get('/games', function(req, res) {
+  db.game.findAll().then(function(data) {
+    console.log(data);
+    res.render('games/index', {games: data});
+  });
+});
+
 // GET /games/new - Returns a form for adding a new game
+app.get('/games/new', function(req, res) {
+  res.render('games/new');
+});
+
 // POST /games - Adds a new game from the posted form data
+app.post('/games', function(req, res) {
+  db.game.create({
+  name: req.body.name,
+  description: req.body.description
+}).then(function(data) {
+  console.log(data);
+  res.redirect('/games');
+});
+});
+
 // GET /games/:name - Gets one specific game
-// GET /games/:name/edit - Returns a form for editing a game's data
-// PUT /games/:name - Updates a game from the posted form data
+app.get('/games/:name', function(req, res) { //READ function
+  db.game.find({
+    where: {name: req.params.name}
+  }).then(function(data) {
+    res.render('games/show', {game: data});
+  })
+});
+
+// GET /games/:name/edit - Returns a form for editing a game's data // EDIT FUNCTION STEP 1
+app.get('/games/:name/edit', function(req, res) {
+  db.game.findAll().then(function(data) {
+    console.log(data);
+    res.render('games/edit', {game: data});
+  });
+});
+
+// PUT /games/:name - Updates a game from the posted form data // EDIT FUNCTION STEP 2
+app.put('/games/:name/', function(req, res) {
+  db.game.find({
+    where: {name: req.params.name}
+  }).then(function(data) {
+    res.send("");
+  })
+});
+
+
 // DELETE /games/:name - Delete one specific game
+//this links to the specific link in the index.ejs file? and then that href link in index.ejs calls the linked js function?
+app.delete('/games/:name', function(req, res) {
+  db.game.destroy({
+    where: {name: req.prams.name}
+  }).then(function(data) {
+    res.send("");
+  })
+});
 
 // start the server
 var port = 3000;
