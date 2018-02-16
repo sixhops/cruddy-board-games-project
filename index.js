@@ -32,8 +32,6 @@ app.get('/games', function(req, res) {
 	})
 })
 
-
-
 // GET /games/new - Returns a form for adding a new game
 app.get('/games/new', function(req, res) {
 	res.render('games/new');
@@ -52,9 +50,47 @@ app.post('/games', function(req, res) {
 })
 
 // GET /games/:name - Gets one specific game
+app.get('/games/:name', function(req, res) {
+	db.game.find({
+	  where: {name: req.params.name}
+	}).then(function(data) {
+		res.render('games/findbyname', {game: data});
+		// console.log(data);
+	});
+})
+
 // GET /games/:name/edit - Returns a form for editing a game's data
+//animals project -intercept the click, nt default, use ajax
+app.get('/games/:name/edit', function(req, res) {
+	db.game.find({
+	  where: {name: req.params.name}
+	}).then(function(data) {
+		res.render('games/edit', {game: data});
+		console.log(data);
+	});
+})
+
 // PUT /games/:name - Updates a game from the posted form data
+app.put('/games/:name', function(req, res) {
+	db.game.update({
+		name: req.body.name,
+		description: req.body.description
+	}, {
+		where: {name: req.params.name}
+	}).then(function() {
+		res.send('updated');
+	})
+})
+
 // DELETE /games/:name - Delete one specific game
+app.delete('games/:name/destroy', function(req, res) {
+	db.game.destroy({
+	  where: { name: req.params.name}
+	}).then(function() {
+	   res.send('deleted');
+	});
+})
+
 
 // start the server
 var port = 3000;

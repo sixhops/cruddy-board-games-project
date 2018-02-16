@@ -1,0 +1,15 @@
+<%- include ../partials/header.ejs %>
+
+<h1>Edit Game</h1>
+<h2>
+  <ul>
+	<li> <%= game.dataValues.name %> : <%= game.dataValues.description %></li>
+  </ul>
+</h2>
+<form id="editForm" method="post" action="/games/<%= game.dataValues.name %>">
+	<input type="text" name="name" placeholder="change game name...">
+	<input type="text" name="description" placeholder="change game description">
+	<input type="submit" value="Edit Game">
+</form>
+
+<%- include ../partials/footer.ejs %>
