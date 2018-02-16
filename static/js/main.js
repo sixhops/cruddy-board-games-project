@@ -3,15 +3,15 @@
 // at the path GET /games/:name/edit. Use AJAX to send a PUT request to the
 // appropriate URL
 
-$('#edit-submit').on('submit', function(e) {
+$('#edit-form').on('submit', function(e) {
   e.preventDefault();
-  var gameUrl = $(this).attr('action');
-  var gameData = $(this).serialize();
+  var gameUrl = $(this).attr('action');  //can use $(e.target).attr('action');
+  var gameData = $(this).serialize();  //can use $(e.target) instead of $(this)
   $.ajax({
     method: 'put',
     url: gameUrl,
     data: gameData
-  }).done(function() {
+  }).done(function(data) {
     window.location = '/games';
   });
 });
