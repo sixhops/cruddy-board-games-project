@@ -35,17 +35,46 @@ app.post('/games', function(req, res) {
   name: req.body.name,
     description: req.body.description
   }).then(function(data) {
-    console.log(data);
     res.redirect('/games');
   });
 });
 // POST /games - Adds a new game from the posted form data
-app.get('/game/:name', function(req, res) {
-
+app.get("/games/:name", function(req, res){
+  db.game.find({
+    // Use ILIKE, to case-insensitively match a pattern
+    // Cons: Slow, unless you start messing with extensions like pg_trgm
+    where: {name: {$iLike: '%'+req.params.name+'%'}}
+  }).then(function(data){
+    res.render("games/single", {game: data});
+  });
 });
 // GET /games/:name - Gets one specific game
+app.get('/games/:name/edit', function(req, res) {
+  db.game.find({
+    where: {name: req.params.name}
+  }).then(function(data) {
+    console.log(data);
+    res.render('games/edit', {game: data})
+  });
+});
 // GET /games/:name/edit - Returns a form for editing a game's data
+app.put('/games/:name', function(req, res) {
+  db.game.update({
+    name: req.body.name,
+    description: req.body.description},
+    {where: {name: req.params.name}}
+  ).then(function(){
+    res.send();
+  })
+});
 // PUT /games/:name - Updates a game from the posted form data
+app.delete('/games/:name/destroy', function(req, res) {
+  db.game.destroy({
+    where: {name: req.params.name}
+  }).then(function() {
+    res.send();
+  });
+});
 // DELETE /games/:name - Delete one specific game
 
 // start the server
