@@ -4,10 +4,12 @@
 <h1>All of My Games</h1>
 <ul>
   <% games.forEach(function(item){ %>
+  <div class="card">
     <li>
       <h1><a href="/games/<%= item.name %>"><%= item.name %></a></h1>
       <h2><%= item.description %></h2>
     </li>
+  </div>
   <% }); %>
 </ul>
 

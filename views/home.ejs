@@ -2,5 +2,10 @@
 <%- include ./partials/header.ejs %>
 
   <h1>Kyle's Game Database</h1>
-
+<% games.forEach(function(item){ %>
+<div class="card">
+  <h1 class="card-"> <%= item.name %></h1>
+  <h2><%= item.description %></h2>
+</div>
+  <% }); %>
 <%- include ./partials/footer.ejs %>

@@ -17,7 +17,9 @@ app.set('view engine', 'ejs');
 
 // Default route for the root of the site
 app.get('/', function(req, res) {
-  res.render('home');
+  db.game.findAll().then(function(data){
+    res.render('home', {games: data});
+  });
 });
 
 // Add your routes here...
@@ -43,7 +45,7 @@ app.post("/games", function(req, res){
 });
 // GET /games/:name - Gets one specific game
 app.get("/games/:name", function(req, res){
-  db.game.findAll({
+  db.game.find({
     where: {name: req.params.name}
   }).then(function(data){
     res.render("games/show", {game: data});

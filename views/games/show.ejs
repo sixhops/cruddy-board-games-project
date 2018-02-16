@@ -1,7 +1,7 @@
 <%- include ../partials/header.ejs %>
 
-<h1> <%= game[0].name %></h1>
-<h2><%= game[0].description %></h2>
+<h1> <%= game.name %></h1>
+<h2><%= game.description %></h2>
+<a href="/games/<%= game.name %>/edit">Edit</a>
 
-<a href="/games/<%= game[0].name %>/edit">Edit</a>
 <%- include ../partials/footer.ejs %>
