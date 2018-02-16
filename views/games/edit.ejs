@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Edit Game Info</title>
+</head>
+<body>
+	<%- include ../partials/header.ejs %>
+	<h1>Enter edits to <%= game[0].name %></h1>
+	<form method="POST" action="/games">
+	  	<input type='text' name='name' placeholder='Enter a game name'>
+	  	<input type='text' name='description' placeholder='Enter description'>
+	  	<input type='submit' value='Update game info'>
+  	</form>
+
+  	<button class="delete-game" type="button" action="/games/<%= game[0].name %>">Delete Game</button>
+</body>
+</html>
