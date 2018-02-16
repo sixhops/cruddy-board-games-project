@@ -1,12 +1,11 @@
 <%- include ../partials/header.ejs %>
 <%- include ../partials/nav.ejs %>
 <div class="">
-  <h1>Enter New Game</h1>
-  <form method='POST' action="/games">
-    <% games.forEach(function(game){ %>
-      <input type="text" name="name" placeholder="Enter Game Name" value="<%= game.name %>" required>
-      <input type="text" name="description" placeholder="Enter Game Description" value="<%= game.description %>" required>
-      <% }); %>
+  <h1>Submit Correction To Game</h1>
+    <form method='PUT' action="/games/<%=game.dataValues.name%>/edit">
+      <input type="text" name="id" value="<%= game.dataValues.id %>" disabled>
+      <input type="text" name="name" placeholder="Enter Game Name" value="<%= game.dataValues.name %>" required>
+      <input type="text" name="description" placeholder="Enter Game Description" value="<%= game.dataValues.description %>" required>
       <input type="submit" name="" value="Submit New Game">
   </form>
 </div>
