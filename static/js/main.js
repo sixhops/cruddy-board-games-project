@@ -5,17 +5,18 @@
 // appropriate URL
 
 // code here ...
-$('.edit-link').on('click', function(event){
+$('#put-form').on('sumbit', function(event){
   event.preventDefault();
   var gameObj = $(this);
-  var gameUrl = gameObj.attr('href');
+  var gameUrl = gameObj.attr('action');
+  var gameData = gameObj.serialize();
   console.log(gameUrl);
   $.ajax({
     method: 'PUT',
     url: gameUrl,
     data: gameObj
   }).done(function(data){
-    console.log(data);
+    console.log("ajax PUT called....!");
     window.location = "/games";
   });
 });
@@ -30,10 +31,11 @@ $('.delete-link').on('click', function(event){
   console.log(gameUrl);
   $.ajax({
     method: 'DELETE',
-    url: gameUrl,
-    data: gameObj
+    url: gameUrl
   }).done(function(data){
+    console.log("ajax DELETE called....!");
     console.log(data);
+    gameObj.remove();
     window.location = "/games";
   });
 });

@@ -6,7 +6,7 @@
       <% games.forEach(function(game){ %>
         <li>
             <a href="/games/<%=game.name%>/edit"> EDIT </a>
-            <a href="/games/<%=game.id%>/destroy" class="delete-link"> DELETE </a>
+            <a href="/games/<%=game.name%>/destroy" class="delete-link"> DELETE </a>
             <%=game.name%>: <%=game.description%>
         </li>
       <% }); %>

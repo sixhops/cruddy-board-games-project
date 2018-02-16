@@ -78,33 +78,44 @@ app.get('/games/:name/edit', function(req,res){
 });
 
 // PUT /games/:name - Updates a game from the posted form data
-app.put('/games/:name/edit', function(req,res){
+app.put('/games/:name', function(req,res){
   console.log("in games/ PUT path.....!");
-  console.log("is it body ");
-  console.log(req.body.name);
-  console.log("or params ");
+  // console.log("is it body ");
+  // console.log(req.body.name);
+  // console.log("or params ");
   console.log(req.params.name);
   db.game.update({
-    where: {name:req.params.name}
+    name:req.params.name,
+    description:req.params.description
+  },
+    {
+    where: {
+      name:req.params.name
+    }
   }).then(function(data){
-    console.log(data[0].dataValues.name);
-    console.log(data[0].dataValues.description);
+    // console.log(data[0].dataValues.name);
+    // console.log(data[0].dataValues.description);
     //update data
-    // console.log(data);
-    res.render('games');
+    console.log(data);
+    res.resend();
   });
 });
 
 // DELETE /games/:name - Delete one specific game
-app.delete('/games/:id/destroy', function(req,res){
+app.delete('/games/:name/destroy', function(req,res){
   console.log("in games/ DESTROY path.....!");
-  db.game.find({
-    where: {id:req.params.id}
-  }).then(function(data){
-    console.log(data[0].dataValues.name);
-    console.log(data[0].dataValues.description);
+  console.log(req.params.id);
+  console.log(req.params.name);
+  db.game.destroy({
+    where: {
+      name:req.params.name
+    }
+  }).then(function(){
+    // console.log(data[0].dataValues.name);
+    // console.log(data[0].dataValues.description);
     console.log("hit the delete");
     // res.render('games/details', {game: data});
+    res.send();
   });
 });
 // start the server
