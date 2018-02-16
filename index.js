@@ -86,7 +86,6 @@ app.delete('/games/:name', function(req, res){
 });
 
 
-
 // start the server
 var port = 3000;
 console.log("Listening at http://localhost:" + port + "...");
