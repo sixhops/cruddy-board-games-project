@@ -1,0 +1,8 @@
+<%- include ../partials/header.ejs %>
+<h3>Edit the game: <%= game.name %></h3>
+<form class="game-edit" method="PUT" action="/games/<%= game.name %>">
+  <input type="text" name="name" value="<%= game.name %>">
+  <input type="text" name="description" value="<%= game.description %>">
+  <input type="submit" value="submit">
+</form>
+<%- include ../partials/footer.ejs %>
