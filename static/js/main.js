@@ -26,6 +26,6 @@ $(".deleteLink").on("click", function(e) {
         method: "DELETE",
         url: url,
     }).done(function(){
-        $("#li" + id).hide();
+        $("#li" + id).remove();
     });
 });
