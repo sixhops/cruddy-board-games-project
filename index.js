@@ -24,7 +24,7 @@ app.get('/', function(req,res) {
 app.get('/games', function(req,res) {
   db.game.findAll().then(function(data){
     console.log("/game findAll YO");
-    console.log(data);
+    // console.log(data);
   // games will be an array of all game instances
   res.render('games/index', {games: data});
   });
@@ -43,7 +43,7 @@ app.post('/games', function(req,res){
     description: req.body.description
     }).then(function(data) {
         // you can now access the newly created task via the variable data
-        console.log(data);
+        // console.log(data);
         res.render('games/name', {game: data});
     });
 });
@@ -70,7 +70,7 @@ app.get('/games/:name/edit', function(req,res){
     where: {name:req.params.name}
   }).then(function(data){
     console.log("data in games/:name/edit");
-    console.log(data);
+    // console.log(data);
     // console.log(data[0].dataValues.name);
     // console.log(data[0].dataValues.description);
     res.render('games/edit', {game: data});
@@ -80,15 +80,10 @@ app.get('/games/:name/edit', function(req,res){
 // PUT /games/:name - Updates a game from the posted form data
 app.put('/games/:name/update', function(req,res){
   console.log("in games/ PUT path.....!");
-  // console.log("is it body ");
-  console.log(req);
-  // console.log("or params ");
-  // console.log(req.params.name);
   db.game.update({
     name:req.body.name,
     description:req.body.description
-  },
-    {
+  }, {
     where: {
       name:req.params.name
     }
@@ -100,8 +95,8 @@ app.put('/games/:name/update', function(req,res){
 // DELETE /games/:name - Delete one specific game
 app.delete('/games/:name/destroy', function(req,res){
   console.log("in games/ DESTROY path.....!");
-  console.log(req.params.id);
-  console.log(req.params.name);
+  // console.log(req.params.id);
+  // console.log(req.params.name);
   db.game.destroy({
     where: {
       name:req.params.name

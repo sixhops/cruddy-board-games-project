@@ -6,18 +6,19 @@
 
 // code here ...
 $('#put-form').on('submit', function(event){
-  console.log("in the form submit handler...")
+  console.log("in the form submit handler...");
+  console.log(event.Url);
   event.preventDefault();
   var gameObj = $(this);
   var gameUrl = gameObj.attr('action');
   var gameData = gameObj.serialize();
-  console.log(gameObj);
   $.ajax({
     method: 'PUT',
     url: gameUrl,
     data: gameObj
-  }).done(function(){
-    window.location = "/games";
+  }).done(function(data){
+    console.log(data);
+    window.location = '/games';
   });
 });
 // listen for clicks on "delete" links. use AJAX to send a DELETE HTTP request
