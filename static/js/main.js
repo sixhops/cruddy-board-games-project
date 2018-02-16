@@ -7,7 +7,7 @@
 // code here ...
 $('#put-form').on('submit', function(event){
   console.log("in the form submit handler...");
-  console.log(event.Url);
+  // console.log(event.Url);
   event.preventDefault();
   var gameObj = $(this);
   var gameUrl = gameObj.attr('action');
@@ -15,7 +15,7 @@ $('#put-form').on('submit', function(event){
   $.ajax({
     method: 'PUT',
     url: gameUrl,
-    data: gameObj
+    data: gameData
   }).done(function(data){
     console.log(data);
     window.location = '/games';
@@ -33,7 +33,7 @@ $('.delete-link').on('click', function(event){
   $.ajax({
     method: 'DELETE',
     url: gameUrl
-  }).done(function(){
+  }).done(function(data){
     window.location = "/games";
   });
 });
