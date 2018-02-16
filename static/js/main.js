@@ -24,11 +24,14 @@ $('.edit-game').submit(function(e) {
 // code here ...
 
 $('.delete-game').on('click', function(e) {
-	var destination = $(this).attr('action');
+	e.preventDefault();
+	var specificGame = $(this);
+	var destination = specificGame.attr('action');
 	$.ajax({
 		method: 'DELETE', 
 		url: destination
-	}).done(function() {
+	}).done(function(data) {
+		console.log(data);
 		window.location = '/games';
 	});
 });
