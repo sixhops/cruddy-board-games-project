@@ -15,8 +15,7 @@ $('#put-form').on('sumbit', function(event){
     method: 'PUT',
     url: gameUrl,
     data: gameObj
-  }).done(function(data){
-    console.log("ajax PUT called....!");
+  }).done(function(){
     window.location = "/games";
   });
 });
@@ -32,10 +31,7 @@ $('.delete-link').on('click', function(event){
   $.ajax({
     method: 'DELETE',
     url: gameUrl
-  }).done(function(data){
-    console.log("ajax DELETE called....!");
-    console.log(data);
-    gameObj.remove();
+  }).done(function(){
     window.location = "/games";
   });
 });
