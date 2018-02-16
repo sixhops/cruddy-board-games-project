@@ -3,7 +3,9 @@
 
   <h1>All of My Games</h1>
   <ul>
-    <li></li>
+    <% games.forEach(function(game) { %>
+      <li><%= game.dataValues.name %>: <%= game.dataValues.description %><a href="games/<%= game.name %>" class="delete-link">Delete</a> <a href="games/<%= game.name %>/edit" class="edit-link">Edit</a></li>
+    <% }); %>
   </ul>
 
 <%- include ../partials/footer.ejs %>
