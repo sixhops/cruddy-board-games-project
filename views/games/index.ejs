@@ -5,8 +5,8 @@
     <ul>
       <% games.forEach(function(game){ %>
         <li>
-            <a href="/games/ <%= game.id %> /edit" class="edit-link"> EDIT </a> -
-            <a  href="/games/ <%= game.id %> /destroy" class="delete-link"> DELETE </a> -
+            <a href="/games/ <%= game.id %> /edit" class="edit-link"> EDIT  - </a>
+            <a  href="/games/ <%= game.id %> /destroy" class="delete-link"> DELETE  </a>
             <%= game.name %>: <%= game.description %>
         </li>
       <% }); %>
@@ -23,15 +23,25 @@
       var gameUrl = gameObj.attr('href');
       console.log(gameUrl);
       $.ajax({
-        method: 'EDIT',
+        method: 'UPDATE',
         url: gameUrl
-      }.done(function(data){
+      }).done(function(data){
         console.log(data);
-        window.location = '/games'
-      }));
+        window.location = "/games";
+      });
     });
     $('delete-link').on('click', function(event){
-      
+      event.preventDefault();
+      var gameObj = $(this);
+      var gameUrl = gameObj.attr('href');
+      console.log(gameUrl);
+      $.ajax({
+        method: 'DELETE',
+        url: gameUrl
+      }).done(function(data){
+        console.log(data);
+        window.location = "/games";
+      });
     });
   </script>
 <%- include ../partials/footer.ejs %>
