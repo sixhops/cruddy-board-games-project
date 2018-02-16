@@ -73,9 +73,10 @@ app.put('/games/:name/', function(req, res) {
 
 
 // DELETE /games/:name - Delee one specific game
+//this links to the specific link in the index.ejs file? and then that href link in index.ejs calls the linked js function?
 app.delete('/games/:name', function(req, res) {
   db.game.destroy({
-    where: {name: req.params.name}
+    where: {name: req.prams.name}
   }).then(function(data) {
     res.send("");
   })
