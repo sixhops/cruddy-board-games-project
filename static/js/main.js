@@ -29,3 +29,22 @@ $('#edit-form').on('submit', function(e) {
     window.location = '/games';
   });
 });
+
+$('.delete-link').on('click', function(e) {
+  e.preventDefault();
+  var gameElement = $(this);
+  var gameUrl = gameElement.attr('href');
+  $.ajax({
+    method: 'DELETE',
+    url: gameUrl
+  }).done(function(data) {
+    // get data returned from the DELETE route
+    console.log(data);
+
+    // do stuff when the DELETE action is complete
+    gameElement.remove();
+
+    // or, you can redirect to another page
+    window.location = '/games';
+  });
+});

@@ -73,6 +73,13 @@ app.put('/games/:name/', function(req, res) {
 
 
 // DELETE /games/:name - Delee one specific game
+app.delete('/games/:name', function(req, res) {
+  db.game.destroy({
+    where: {name: req.params.name}
+  }).then(function(data) {
+    res.send("");
+  })
+});
 
 // start the server
 var port = 3000;
