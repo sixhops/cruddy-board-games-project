@@ -1,3 +1,5 @@
+<!DOCTYPE html>
+
 
 <%- include ../partials/header.ejs %>
 
@@ -5,7 +7,8 @@
   <ul>
   	<% games.forEach(function(game) { %>
   		<h1><a href="/games/<%= game.name %>"> <%= game.name %> </a></h1>
-        <h2> <%= game.description %> </h2>
+        <h2> <%= games.description %> </h2>
+        <a href='/games/<%= game.name %>/edit'>Edit</a>
   	<% }) %>
   </ul>
 

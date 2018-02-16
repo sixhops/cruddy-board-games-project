@@ -5,7 +5,7 @@ console.log("JS good to go, sir!");
 // appropriate URL
 
 // code here ...
-$('.edit-game').submit(function(e) {
+$('.edit-game').on('submit', function(e) {
 	e.preventDefault();
 	var gameURL = $(this).attr('action');
 	var update = $(this).serialize();
@@ -13,7 +13,7 @@ $('.edit-game').submit(function(e) {
 		method: "PUT",
 		url: gameURL,
 		data: update
-	}).done(function() {
+	}).done(function(data) {
 		window.location = '/games';
 	});
 });

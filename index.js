@@ -42,12 +42,12 @@ app.post('/games', function(req,res) {
 		console.log(data);
 		res.redirect('/games');
 	})
-	res.render('games');
+	res.render('games/show');
 });
 
 // GET /games/:name - Gets one specific game
 app.get('/games/:name', function(req, res) {
-	db.game.findAll({
+	db.game.find({
 		where: {name: req.params.name}
 	}).then(function(data) {
 		res.render('games/show', {game: data});
@@ -56,9 +56,10 @@ app.get('/games/:name', function(req, res) {
 
 // GET /games/:name/edit - Returns a form for editing a game's data
 app.get('/games/:name/edit', function(req, res) {
-	db.game.findAll({
+	db.game.find({
 		where: {name: req.params.name}
 	}).then(function(data) {
+		console.log(data);
 		res.render('games/edit', {game: data});
 	});
 });
@@ -71,7 +72,7 @@ app.put('/games/:name', function(req, res){
 	}, {
 		where: {name: req.params.name}
 	}).then(function(data){
-		res.send();
+		res.send('');
 	});
 });
 
@@ -79,8 +80,8 @@ app.put('/games/:name', function(req, res){
 app.delete('/games/:name', function(req, res) {
 	db.game.destroy({
 		where: {name: req.params.name}
-	}).then(function() {
-		res.send();
+	}).then(function(data) {
+		res.send('');
 	});
 });
 
