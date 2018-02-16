@@ -6,12 +6,12 @@ console.log("JS good to go, sir!");
 
 // code here ...
 $('.edit-link').on('submit', function(e) {
-  e.preventDefault(); //edit form will not post to the back immediately
+  e.preventDefault(); //edit form will not POST to the back immediately
   var gameElement = $(this);
   var gameUrl = gameElement.attr('action');
   var gameData = gameElement.serialize();
   $.ajax({
-    method: 'PUT',
+    method: 'PUT', //we tell via ajax to do a PUT instead of POST
     url: gameUrl,
     data: gameData
   }).done(function(data) {

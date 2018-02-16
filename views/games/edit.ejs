@@ -1,6 +1,6 @@
 <%- include ../partials/header.ejs %>
 
-  <h1>Edit Game</h1>
+  <h1>Edit Game: <%= game.dataValues.name %></h1>
     <form class="edit-link" method='post' action='/games/<%= game.dataValues.name %>'>
       <input type='text' name='name' placeholder='Update game name...'>
       <input type='text' name='description' placeholder='Update description...'>
