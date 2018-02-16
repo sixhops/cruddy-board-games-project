@@ -78,7 +78,7 @@ app.get('/games/:name/edit', function(req,res){
 });
 
 // PUT /games/:name - Updates a game from the posted form data
-app.put('/games/:name', function(req,res){
+app.put('/games/:name/update', function(req,res){
   console.log("in games/ PUT path.....!");
   // console.log("is it body ");
   console.log(req);
@@ -93,7 +93,7 @@ app.put('/games/:name', function(req,res){
       name:req.params.name
     }
   }).then(function(){
-    res.resend();
+    res.send("success");
   });
 });
 
@@ -109,8 +109,8 @@ app.delete('/games/:name/destroy', function(req,res){
   }).then(function(){
     // console.log(data[0].dataValues.name);
     // console.log(data[0].dataValues.description);
-    console.log("hit the delete");
-    res.send();
+    // console.log("hit the delete");
+    res.send("success");
   });
 });
 // start the server

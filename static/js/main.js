@@ -5,12 +5,13 @@
 // appropriate URL
 
 // code here ...
-$('#put-form').on('sumbit', function(event){
+$('#put-form').on('submit', function(event){
+  console.log("in the form submit handler...")
   event.preventDefault();
   var gameObj = $(this);
   var gameUrl = gameObj.attr('action');
   var gameData = gameObj.serialize();
-  console.log(gameUrl);
+  console.log(gameObj);
   $.ajax({
     method: 'PUT',
     url: gameUrl,

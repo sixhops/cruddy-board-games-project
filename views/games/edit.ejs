@@ -2,7 +2,7 @@
 <%- include ../partials/nav.ejs %>
 <div class="">
   <h1>Submit Correction To Game</h1>
-    <form method='post' name="update-form" id="put-form" action="/games/<%=game.dataValues.name%>">
+    <form method='post' name="update-form" id="put-form" action="/games/<%=game.dataValues.name%>/update">
       <input type="text" name="id" value="<%= game.dataValues.id %>" disabled>
       <input type="text" name="name" placeholder="Enter Game Name" value="<%= game.dataValues.name %>" required>
       <input type="text" name="description" placeholder="Enter Game Description" value="<%= game.dataValues.description %>" required>
