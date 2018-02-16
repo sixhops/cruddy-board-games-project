@@ -1,0 +1,19 @@
+<%- include ../partials/header.ejs %>
+ <div>
+   <a href="/">Home</a>
+   <a href="/games/new">Add New Game</a>
+   <a href="/games">List All Games</a>
+ </div>
+
+ <h1>Edit Game</h1>
+
+ <form action="/games/<%=game.dataValues.name%>" id='put-form'>
+   <input type="text" name="name" value='<%=game.dataValues.name%>'>
+   <input type="text" name="description" value="<%=game.dataValues.description%>">
+   <input type="submit" value="Submit change">
+ </form>
+
+
+
+
+<%- include ../partials/footer.ejs %>
