@@ -78,12 +78,12 @@ app.get('/games/:name/edit', function(req,res){
 });
 
 // PUT /games/:name - Updates a game from the posted form data
-app.put('/games/:name/update', function(req,res){
+app.put('/games/:name', function(req,res){
   console.log("in games/ PUT path.....!");
   // console.log("is it body ");
-  // console.log(req.body.name);
+  console.log(req);
   // console.log("or params ");
-  console.log(req.params.name);
+  // console.log(req.params.name);
   db.game.update({
     name:req.body.name,
     description:req.body.description
