@@ -44,7 +44,6 @@ app.post('/games', function(req, res) {
 		description: req.body.description
 	}).then(function(data) {
 		console.log(data);
-		res.send('success');
 		res.redirect('/games');
 	})
 })
@@ -77,13 +76,13 @@ app.put('/games/:name', function(req, res) {
 		description: req.body.description
 	}, {
 		where: {name: req.params.name}
-	}).then(function() {
+	}).then(function(data) {
 		res.send('updated');
 	})
 })
 
 // DELETE /games/:name - Delete one specific game
-app.delete('games/:name/destroy', function(req, res) {
+app.delete('/games/:name/destroy', function(req, res) {
 	db.game.destroy({
 	  where: { name: req.params.name}
 	}).then(function() {
