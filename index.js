@@ -14,7 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.set('view engine', 'ejs');
 
-// Default route for the root of the site
+// Default route for the root of the site //this defines home.ejs as the root index file
 app.get('/', function(req, res) {
   res.render('home');
 });
@@ -54,7 +54,7 @@ app.get('/games/:name', function(req, res) { //READ function
   })
 });
 
-// GET /games/:name/edit - Returns a form for editing a game's data
+// GET /games/:name/edit - Returns a form for editing a game's data // EDIT FUNCTION STEP 1
 app.get('/games/:name/edit', function(req, res) {
   db.game.findAll().then(function(data) {
     console.log(data);
@@ -62,7 +62,7 @@ app.get('/games/:name/edit', function(req, res) {
   });
 });
 
-// PUT /games/:name - Updates a game from the posted form data
+// PUT /games/:name - Updates a game from the posted form data // EDIT FUNCTION STEP 2
 app.put('/games/:name/', function(req, res) {
   db.game.find({
     where: {name: req.params.name}
@@ -72,7 +72,7 @@ app.put('/games/:name/', function(req, res) {
 });
 
 
-// DELETE /games/:name - Delee one specific game
+// DELETE /games/:name - Delete one specific game
 //this links to the specific link in the index.ejs file? and then that href link in index.ejs calls the linked js function?
 app.delete('/games/:name', function(req, res) {
   db.game.destroy({
