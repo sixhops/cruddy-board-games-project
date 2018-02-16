@@ -4,6 +4,8 @@ body {
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+  margin: 0;
+  padding: 0;
 }
 
 div {
@@ -11,4 +13,23 @@ div {
   border: solid black 1px;
   margin: 1em;
   padding: 1em;
+}
+
+a {
+  text-decoration: none;
+}
+
+#navBar {
+    background: white;
+    margin: 1em;
+    padding: 0;
+    height: 2em;
+    line-height: 2em;
+    border: 1px solid black;
+}
+
+#navBar li {
+    display: inline-block;
+    list-style: none;
+    padding: 0 1em;
 }
