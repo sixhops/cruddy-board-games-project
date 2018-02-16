@@ -1,9 +1,14 @@
 
 <%- include ../partials/header.ejs %>
 
-  <h1>All of My Games</h1>
-  <ul>
-    <li></li>
-  </ul>
+<h1>All of My Games</h1>
+<ul>
+  <% games.forEach(function(item){ %>
+    <li>
+      <h1><a href="/games/<%= item.name %>"><%= item.name %></a></h1>
+      <h2><%= item.description %></h2>
+    </li>
+  <% }); %>
+</ul>
 
 <%- include ../partials/footer.ejs %>

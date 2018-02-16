@@ -1,0 +1,10 @@
+<%- include ../partials/header.ejs %>
+
+<h1>Edit Game: <%= game[0].name %></h1>
+<form class="edit-game" method="post" action="/games/<%= game[0].name %>">
+  <input class="newName" type="text" name="name" value="<%= game[0].name %>">
+  <input class="newDesc" type="text" name="description" value="<%= game[0].description %>">
+  <input type="submit" value="Update Game">
+</form>
+<button class="delete-game" type="button" action="/games/<%= game[0].name %>">Delete Game</button>
+<%- include ../partials/footer.ejs %>
