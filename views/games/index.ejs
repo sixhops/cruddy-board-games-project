@@ -10,7 +10,9 @@
   <h1>All of My Games</h1>
   <ul>
     <% games.forEach(function(game) { %>
-      <li><a href="games/<%=game.dataValues.name%>/edit">edit </a><a class="delete-link" href="games/<%=game.dataValues.name%>">Delete </a><%= game.dataValues.name %>: <%= game.dataValues.description %> </li>
+      <li><a href="games/<%=game.dataValues.name%>/edit">edit </a>
+        <a class="delete-link" href="games/<%=game.dataValues.name%>">Delete </a>
+        <a href="games/<%= game.dataValues.name %>"><%= game.dataValues.name %>: <%= game.dataValues.description %> </a></li>
     <% }); %>
 
   </ul>
