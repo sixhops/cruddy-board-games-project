@@ -1,0 +1,12 @@
+<%- include ../partials/header.ejs %>
+
+  <div>
+    <h1>Edit <%= game.name %></h1>
+    <form method="POST" action="/games/<%= game.name %>" id="editForm">
+        <input type="text" name="name" value="<%= game.name %>"><br>
+        <input type="text" name="description" value="<%= game.description %>"><br>
+        <input type="submit" value="Submit Change">
+    </form>
+  </div>
+
+<%- include ../partials/footer.ejs %>
