@@ -1,0 +1,14 @@
+<%- include ../partials/header %>
+
+<div id="center-container">
+  <div>
+    <form method="POST" action="/games/<%= game.name %>" id="edit-game">
+      <input type="text" name="name" value="<%= game.name %>">
+      <input type="text" name="description" value="<%= game.description %>">
+      <input type="submit" class="waves-effect waves-light green accent-3 btn" value="Apply Edit">
+    </form>
+  </div>
+</div>
+
+
+<%- include ../partials/footer %>

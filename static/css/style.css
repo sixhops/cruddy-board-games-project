@@ -1,14 +1,57 @@
+html, body { height: 100%;}
 body {
   background: url('/img/background.jpg') no-repeat center center fixed;
   -webkit-background-size: cover;
   -moz-background-size: cover;
   -o-background-size: cover;
   background-size: cover;
+
 }
 
-div {
+.container {
+  background: #fff;
+}
+
+#center-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+#center-container div {
+  background: #fff;
+  padding: 50px;
+  border-radius: 5px;
+}
+
+form {
+  text-align: center;
+}
+
+.delete-game {
+  float: right;
+}
+
+#title {
+  margin: 25px auto;
+  width: 550px;
+  background: #fff;
+  max-width: 100%;
+  text-align: center;
+  padding: 5px 0px;
+}
+
+body .blue-grey.darken-1 {
+  background-color: #313c40 !important;
+}
+
+.btn {
+  color: #333 !important;
+}
+/* div {
   background-color: white;
   border: solid black 1px;
   margin: 1em;
   padding: 1em;
-}
+} */
