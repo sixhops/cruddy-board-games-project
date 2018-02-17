@@ -11,10 +11,12 @@
     <% } %>
       <div class="col s12 m6">
         <div class="card blue-grey darken-1">
-          <div class="card-content white-text">
-            <span class="card-title"><%= game.name %></span>
-            <p><%= game.description %></p>
-          </div>
+          <a href="/games/<%= game.name %>">
+            <div class="card-content white-text">
+              <span class="card-title"><%= game.name %></span>
+              <p><%= game.description %></p>
+            </div>
+          </a>
           <div class="card-action">
             <a href="/games/<%= game.name %>/edit" class="waves-effect waves-light green accent-3 btn" >Edit Game</a>
             <a href="/games/<%= game.name %>" class="waves-effect waves-light green accent-3 btn delete-game">Delete Game</a>
