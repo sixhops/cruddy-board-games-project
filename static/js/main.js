@@ -6,8 +6,6 @@
 
 // code here ...
 $('#put-form').on('submit', function(event){
-  console.log("in the form submit handler...");
-  // console.log(event.Url);
   event.preventDefault();
   var gameObj = $(this);
   var gameUrl = gameObj.attr('action');
@@ -17,10 +15,10 @@ $('#put-form').on('submit', function(event){
     url: gameUrl,
     data: gameData
   }).done(function(data){
-    console.log(data);
     window.location = '/games';
   });
 });
+
 // listen for clicks on "delete" links. use AJAX to send a DELETE HTTP request
 // to the appropriate URL
 
@@ -29,7 +27,6 @@ $('.delete-link').on('click', function(event){
   event.preventDefault();
   var gameObj = $(this);
   var gameUrl = gameObj.attr('href');
-  console.log(gameUrl);
   $.ajax({
     method: 'DELETE',
     url: gameUrl
