@@ -25,7 +25,6 @@ app.get('/games', function(req,res) {
   db.game.findAll({
     attributes: ['id', 'name', 'description']
   }).then(function(data){
-    console.log("/game findAll YO");
   // games will be an array of all game instances
   res.render('games/index', {games: data});
   });
