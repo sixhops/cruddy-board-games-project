@@ -18,7 +18,6 @@ $('#put-form').on('submit', function(event){
     window.location = '/games';
   });
 });
-
 // listen for clicks on "delete" links. use AJAX to send a DELETE HTTP request
 // to the appropriate URL
 

@@ -51,7 +51,7 @@ app.post('/games', function(req,res){
 
 // GET /games/:name - Gets one specific game
 app.get('/games/:name', function(req,res){
-  console.log("in games/:name path.....!");
+  // console.log("in games/:name path.....!");
   var game = {
     name: req.params.name
   }
@@ -70,7 +70,7 @@ app.get('/games/:name/edit', function(req,res){
   db.game.find({
     where: {name:game.name}
   }).then(function(data){
-    console.log("data in games/:name/edit");
+    // console.log("data in games/:name/edit");
     res.render('games/edit', {game: data});
   });
 });
