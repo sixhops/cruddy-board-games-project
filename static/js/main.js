@@ -10,3 +10,31 @@ console.log("JS good to go, sir!");
 // to the appropriate URL
 
 // code here ...
+$('#editForm').on('submit', function(e){
+  e.preventDefault();
+  $.ajax({
+    method: 'put',
+    url: $(this).attr('action'),
+    data: $(this).serialize()
+
+  }).done(function(data){
+    window.location='/games';
+  })
+});
+
+$('.delete').on('click', function(e){
+  e.preventDefault();
+  var gameElement = $(this);
+  var gameUrl = gameElement.attr('href');
+  $.ajax({
+   method: 'DELETE',
+   url: gameUrl
+ }).done(function(data) {
+   console.log(data);
+   gameElement.remove();
+
+   // // or, you can redirect to another page
+   // window.location = '/teams';
+ });
+});
+})
