@@ -2,8 +2,15 @@
 <%- include ../partials/header.ejs %>
 
   <h1>All of My Games</h1>
-  <ul>
-    <li></li>
-  </ul>
 
+  <a class="other-link" href="/games/new">Add a new game</a>
+  <ul>
+    <% games.forEach(function(game) { %>
+      <li>
+        <a class="game-link" href="/games/<%= game.dataValues.name %>"><%= game.dataValues.name %></a>
+        <a class="game-link" href="/games/<%= game.dataValues.name %>/edit">Edit </a>
+        <a class="game-link delete" href="/games/<%= game.dataValues.name %>">Delete </a>
+      </li>
+    <% }); %>
+  </ul>
 <%- include ../partials/footer.ejs %>

@@ -1,0 +1,10 @@
+<%- include ../partials/header.ejs %>
+
+  <h1><%= game.dataValues.name %></h1>
+
+  <a class="game-link" href="/games/<%= game.dataValues.name %>/edit">Edit </a>
+  <a class="game-link delete" href="/games/<%= game.dataValues.name %>">Delete </a>
+
+  <p><%= game.dataValues.description %></p>
+
+<%- include ../partials/footer.ejs %>
