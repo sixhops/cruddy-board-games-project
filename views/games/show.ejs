@@ -1,0 +1,18 @@
+<%- include ../partials/header.ejs %>
+
+<div>
+  <a href="/">Home</a>
+  <a href="/games/new">Add New Game</a>
+  <a href="/games">List All Games</a>
+</div>
+
+<h1>A game</h1>
+
+<h2> <%= game.dataValues.name%> </h2>
+<p> <%= game.dataValues.description %> </p>
+
+
+
+
+
+<%- include ../partials/footer.ejs %>

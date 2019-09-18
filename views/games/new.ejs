@@ -1,0 +1,16 @@
+<%- include ../partials/header.ejs %>
+<div>
+  <a href="/">Home</a>
+  <a href="/games/new">Add New Game</a>
+  <a href="/games">List All Games</a>
+</div>
+
+ <h1>Add New Game</h1>
+
+ <form action="/games" method="post">
+   <input type="text" name="name" placeholder="Enter a game name...">
+   <input type="text" name="description" placeholder="Enter a game description...">
+   <input type="submit" value="Add new game">
+ </form>
+
+<%- include ../partials/footer.ejs %>
