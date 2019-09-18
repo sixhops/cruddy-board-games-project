@@ -1,0 +1,10 @@
+<%- include ../partials/header.ejs %>
+
+  <h1>Add New Game</h1>
+    <form method='post' action='/games'>
+      <input type='text' name='name' placeholder='Enter a game name...'>
+      <input type='text' name='description' placeholder='Enter description...'>
+      <input type='submit' value='Add new game'>
+    </form>
+
+<%- include ../partials/footer.ejs %>
