@@ -1,9 +1,19 @@
-
 <%- include ../partials/header.ejs %>
-
-  <h1>All of My Games</h1>
-  <ul>
-    <li></li>
-  </ul>
-
+<h1 class="title">All of My Games</h1>
+<%- include ../partials/nav.ejs %>
+<div class="info">
+    <ul>
+      <% games.forEach(function(game){ %>
+        <li>
+            <a href="/games/<%=game.name%>/edit"> EDIT </a>
+            <a href="/games/<%=game.id%>/destroy" class="delete-link"> DELETE </a>
+            <%=game.name%>: <%=game.description%>
+        </li>
+      <% }); %>
+    </ul>
+</div>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
 <%- include ../partials/footer.ejs %>

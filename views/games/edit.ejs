@@ -1,0 +1,16 @@
+<%- include ../partials/header.ejs %>
+<%- include ../partials/nav.ejs %>
+<div class="">
+  <h1>Submit Correction To Game</h1>
+    <form method='post' name="update-form" id="put-form" action="/games/<%=game.dataValues.name%>">
+      <input type="text" name="id" value="<%= game.dataValues.id %>" disabled>
+      <input type="text" name="name" placeholder="Enter Game Name" value="<%= game.dataValues.name %>" required>
+      <input type="text" name="description" placeholder="Enter Game Description" value="<%= game.dataValues.description %>" required>
+      <input type="submit" name="" value="Submit New Game">
+  </form>
+</div>
+<script
+  src="https://code.jquery.com/jquery-3.3.1.min.js"
+  integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+  crossorigin="anonymous"></script>
+<%- include ../partials/footer.ejs %>
